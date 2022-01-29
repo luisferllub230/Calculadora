@@ -1,4 +1,4 @@
-﻿using Calculadora.model;
+﻿using Calculadora.Controller;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -101,6 +101,7 @@ namespace Calculadora
         private void BTNclean_Click(object sender, EventArgs e)
         {
             LBLnumber.Text = "0";
+            LBLnumero2.Text = "0";
         }
 
         //do not repeat numbers
@@ -113,5 +114,20 @@ namespace Calculadora
             return n;
         }
 
+        //sumar
+        private void button13_Click(object sender, EventArgs e)
+        {
+            LBLnumero2.Text += LBLnumber.Text+" + ";
+            cal.add(LBLnumber.Text);
+            LBLnumber.Text = "0";
+        }
+
+        //answer
+        private void button17_Click(object sender, EventArgs e)
+        {
+            cal.add(LBLnumber.Text);
+            LBLnumero2.Text = "0";
+            LBLnumber.Text = cal.answer();
+        }
     }
 }

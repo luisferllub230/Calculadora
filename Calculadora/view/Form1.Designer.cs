@@ -34,6 +34,7 @@
             this.BTNminimize = new System.Windows.Forms.Button();
             this.BTNClose = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.LBLnumero2 = new System.Windows.Forms.Label();
             this.BTNclean = new System.Windows.Forms.Button();
             this.LBLnumber = new System.Windows.Forms.Label();
             this.FLTkeyboar = new System.Windows.Forms.FlowLayoutPanel();
@@ -118,12 +119,21 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel1.Controls.Add(this.LBLnumero2);
             this.panel1.Controls.Add(this.BTNclean);
             this.panel1.Controls.Add(this.LBLnumber);
             this.panel1.Location = new System.Drawing.Point(4, 47);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(426, 117);
             this.panel1.TabIndex = 1;
+            // 
+            // LBLnumero2
+            // 
+            this.LBLnumero2.AutoSize = true;
+            this.LBLnumero2.Location = new System.Drawing.Point(14, 16);
+            this.LBLnumero2.Name = "LBLnumero2";
+            this.LBLnumero2.Size = new System.Drawing.Size(0, 13);
+            this.LBLnumero2.TabIndex = 2;
             // 
             // BTNclean
             // 
@@ -303,6 +313,7 @@
             this.button13.TabIndex = 0;
             this.button13.Text = "+";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button14
             // 
@@ -339,6 +350,7 @@
             this.button17.TabIndex = 4;
             this.button17.Text = "=";
             this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // Form1
             // 
@@ -393,6 +405,7 @@
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Label LBLnumero2;
     }
 }
 
