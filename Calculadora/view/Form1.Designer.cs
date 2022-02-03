@@ -86,9 +86,9 @@
             // BTNminimize
             // 
             this.BTNminimize.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BTNminimize.Location = new System.Drawing.Point(332, 3);
+            this.BTNminimize.Location = new System.Drawing.Point(338, 4);
             this.BTNminimize.Name = "BTNminimize";
-            this.BTNminimize.Size = new System.Drawing.Size(42, 35);
+            this.BTNminimize.Size = new System.Drawing.Size(41, 22);
             this.BTNminimize.TabIndex = 1;
             this.BTNminimize.UseVisualStyleBackColor = false;
             this.BTNminimize.Click += new System.EventHandler(this.BTNminimize_Click);
@@ -98,7 +98,7 @@
             this.BTNClose.BackColor = System.Drawing.Color.Red;
             this.BTNClose.Location = new System.Drawing.Point(388, 3);
             this.BTNClose.Name = "BTNClose";
-            this.BTNClose.Size = new System.Drawing.Size(42, 35);
+            this.BTNClose.Size = new System.Drawing.Size(42, 23);
             this.BTNClose.TabIndex = 0;
             this.BTNClose.UseVisualStyleBackColor = false;
             this.BTNClose.Click += new System.EventHandler(this.BTNClose_Click);
