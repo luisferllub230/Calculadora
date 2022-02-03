@@ -1,4 +1,5 @@
-﻿using Calculadora.Controller;
+﻿using Calculadora.controller;
+using Calculadora.Controller;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,10 @@ namespace Calculadora
     public partial class Form1 : Form
     {
         CalculatorControler cal = new CalculatorControler();
-        String num = "0";
+        RemuveCaracter re = new RemuveCaracter();
+        List<char> li = new List<char>() { '+', '-', '*', '/' };
+        private String num = "0";
+        private String operate = "";
 
         
         public Form1()
@@ -37,97 +41,153 @@ namespace Calculadora
         //num1
         private void button1_Click(object sender, EventArgs e)
         {
-            String n1 = goback("1");
-            LBLnumber.Text += n1;
+            cleanCero();
+            num = "1";
+            LBLnumber.Text += num.ToString();
         }
         //num2
         private void button2_Click(object sender, EventArgs e)
         {
-            String n2 = goback("2");
-            LBLnumber.Text += n2;
+            cleanCero();
+            num = "2";
+            LBLnumber.Text += num.ToString();
         }
         //3
         private void button3_Click(object sender, EventArgs e)
         {
-            String n3 = goback("3");
-            LBLnumber.Text += n3;
+            cleanCero();
+            num = "3";
+            LBLnumber.Text += num.ToString();
         }
         //4
         private void button4_Click(object sender, EventArgs e)
         {
-            String n4 = goback("4");
-            LBLnumber.Text += n4;
+            cleanCero();
+            num = "4";
+            LBLnumber.Text += num.ToString();
         }
         //5
         private void button5_Click(object sender, EventArgs e)
         {
-            String n5 = goback("5");
-            LBLnumber.Text += n5;
+            cleanCero();
+            num = "5";
+            LBLnumber.Text += num.ToString();
         }
         //6
         private void button6_Click(object sender, EventArgs e)
         {
-            String n6 = goback("6");
-            LBLnumber.Text += n6;
+            cleanCero();
+            num = "6";
+            LBLnumber.Text += num.ToString();
         }
         //7
         private void button7_Click(object sender, EventArgs e)
         {
-            String n7 = goback("7");
-            LBLnumber.Text += n7;
+            cleanCero();
+            num = "7";
+            LBLnumber.Text += num.ToString();
         }
         //8
         private void button8_Click(object sender, EventArgs e)
         {
-            String n8 = goback("8");
-            LBLnumber.Text += n8;
-
+            cleanCero();
+            num = "8";
+            LBLnumber.Text += num.ToString();
         }
         //9
         private void button9_Click(object sender, EventArgs e)
         {
-            String n9 = goback("9");
-            LBLnumber.Text += n9;
+            cleanCero();
+            num = "9";
+            LBLnumber.Text += num.ToString();
         }
         //num0
         private void button11_Click(object sender, EventArgs e)
         {
-            String n11 = goback("0");
-            LBLnumber.Text += n11;
+            cleanCero();
+            num = "0";
+            LBLnumber.Text += num.ToString();
         }
-
 
         //clean
         private void BTNclean_Click(object sender, EventArgs e)
         {
-            LBLnumber.Text = "0";
-            LBLnumero2.Text = "0";
+            num = "0";
+            LBLnumber.Text = num.ToString();
+            LBLnumero2.Text = num.ToString();
         }
 
-        //do not repeat numbers
-        String goback(String n)
+
+        //add
+        private void button13_Click(object sender, EventArgs e)
         {
-            if (LBLnumber.Text == "0")
+            LBLnumero2.Text = LBLnumber.Text +" + ";
+            LBLnumber.Text = "0";
+            num = "0";
+            operate = "+";
+        }
+
+        //subtraction 
+        private void button14_Click(object sender, EventArgs e)
+        {
+            LBLnumero2.Text = LBLnumber.Text + " - ";
+            LBLnumber.Text = "0";
+            num = "0";
+            operate = "-";
+        }
+
+        //multiply
+        private void button15_Click(object sender, EventArgs e)
+        {
+            LBLnumero2.Text = LBLnumber.Text + " * ";
+            LBLnumber.Text = "0";
+            num = "0";
+            operate = "*";
+        }
+
+        //division
+        private void button16_Click(object sender, EventArgs e)
+        {
+            LBLnumero2.Text = LBLnumber.Text + " / ";
+            LBLnumber.Text = "0";
+            num = "0";
+            operate = "/";
+        }
+
+        //clean num 0
+        private void cleanCero() 
+        {
+            if (LBLnumber.Text == "0") 
             {
                 LBLnumber.Text = "";
             }
-            return n;
-        }
-
-        //sumar
-        private void button13_Click(object sender, EventArgs e)
-        {
-            LBLnumero2.Text += LBLnumber.Text+" + ";
-            cal.add(LBLnumber.Text);
-            LBLnumber.Text = "0";
         }
 
         //answer
         private void button17_Click(object sender, EventArgs e)
         {
-            cal.add(LBLnumber.Text);
-            LBLnumero2.Text = "0";
-            LBLnumber.Text = cal.answer();
+            try
+            {
+                float num2 = (float)Convert.ToDouble(re.filter(LBLnumero2.Text, li));
+                float num1 = (float)Convert.ToDouble(LBLnumber.Text);
+                LBLnumero2.Text += LBLnumber.Text;
+                LBLnumber.Text = "" + cal.operation(operate, num1, num2);
+            }
+            catch (Exception)
+            {
+                LBLnumber.Text = "error capa 8";
+            }
+        }
+
+        //point
+        private void button12_Click(object sender, EventArgs e)
+        {
+            bool b = true;
+            foreach (char i in LBLnumber.Text) 
+            {
+                if (i == '.') { b = false;}
+            }
+            if (b) { LBLnumber.Text += "."; }
         }
     }
 }
